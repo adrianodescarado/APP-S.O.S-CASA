@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S.O.S CASA</title>
+<title>S.O.S Casa</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#111;
-color:white;
 }
 
 /* LOGIN */
@@ -20,6 +18,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:#111;
+color:white;
 }
 
 .login-box{
@@ -35,11 +34,6 @@ box-shadow:0 10px 40px rgba(0,0,0,0.6);
 .login-box h1{
 font-size:50px;
 margin-bottom:10px;
-}
-
-.login-box h2{
-margin-bottom:20px;
-font-weight:normal;
 }
 
 input{
@@ -63,37 +57,71 @@ font-weight:bold;
 cursor:pointer;
 }
 
-button:hover{
-opacity:0.9;
-}
-
 /* APP */
 .app{
 display:none;
-padding:20px;
+background:white;
+min-height:100vh;
+padding-bottom:40px;
 }
 
 .header{
 background:#ff7a00;
+color:white;
 padding:20px;
-border-radius:12px;
 font-size:22px;
 font-weight:bold;
-margin-bottom:25px;
 }
 
-/* Netflix style */
+/* SEARCH */
+.search-container{
+padding:15px;
+}
+
+.search-box{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+/* CATEGORY BAR */
+.category-bar{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:10px 15px;
+}
+
+.category{
+background:#eee;
+padding:8px 15px;
+border-radius:20px;
+cursor:pointer;
+white-space:nowrap;
+font-size:14px;
+}
+
+.category.active{
+background:#ff7a00;
+color:white;
+}
+
+/* CARDS */
 .cards-container{
 display:flex;
-gap:20px;
-overflow-x:auto;
+flex-wrap:wrap;
+gap:15px;
+padding:15px;
 }
 
 .card{
-min-width:300px;
 background:#1e1e1e;
+color:white;
 padding:20px;
-border-radius:15px;
+border-radius:12px;
+width:280px;
 cursor:pointer;
 transition:transform 0.3s;
 }
@@ -102,19 +130,40 @@ transition:transform 0.3s;
 transform:scale(1.05);
 }
 
-.card-title{
-font-size:18px;
-font-weight:bold;
-margin-bottom:10px;
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
 }
 
-.solution{
-display:none;
-margin-top:15px;
-font-size:14px;
-line-height:1.6;
+.modal-content{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+width:90%;
+max-width:500px;
+max-height:80vh;
+overflow-y:auto;
 white-space:pre-line;
-color:#ddd;
+}
+
+.close-btn{
+margin-top:15px;
+background:#ff7a00;
+color:white;
+padding:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+width:100%;
 }
 
 </style>
@@ -125,7 +174,7 @@ color:#ddd;
 <div class="login-container" id="login">
 <div class="login-box">
 <h1>🏠</h1>
-<h2>S.O.S CASA</h2>
+<h2>S.O.S Casa</h2>
 <input type="password" id="password" placeholder="Digite a senha">
 <button onclick="login()">Entrar</button>
 <p id="error" style="color:red;"></p>
@@ -136,54 +185,25 @@ color:#ddd;
 <div class="app" id="app">
 
 <div class="header">
-📘 Receitas Domésticas Premium
+📘 S.O.S Casa - Receitas Domésticas Premium
 </div>
 
-<div class="cards-container">
-
-<div class="card" onclick="toggleSolution()">
-<div class="card-title">
-💧 Xixi no colchão (remoção completa de odor)
+<div class="search-container">
+<input type="text" class="search-box" placeholder="🔎 Buscar receita..." onkeyup="buscarReceita(this.value)">
 </div>
 
-<div class="solution" id="solution1">
-
-🧂 INGREDIENTES:
-• 200ml de vinagre branco  
-• 2 colheres (sopa) de bicarbonato de sódio  
-• 1 colher (sopa) de detergente neutro  
-• 300ml de água morna  
-
-🥣 RECIPIENTE:
-• Borrifador de 500ml  
-• Tigela média  
-
-⏱ TEMPO DE AÇÃO:
-• 30 a 40 minutos  
-• Secagem total: 6 a 12 horas  
-
-🧽 PASSO A PASSO:
-1️⃣ Retire o excesso com papel toalha (sem esfregar).  
-2️⃣ Misture na tigela: água morna + vinagre + detergente.  
-3️⃣ Coloque no borrifador.  
-4️⃣ Borrife até umedecer a área afetada.  
-5️⃣ Polvilhe bicarbonato por cima.  
-6️⃣ Aguarde 30–40 minutos.  
-7️⃣ Aspire o pó seco.  
-
-⚠ OBSERVAÇÕES IMPORTANTES:
-• Não encharcar o colchão.  
-• Deixar ventilar bem.  
-• Pode repetir se necessário.  
-
-✅ RESULTADO ESPERADO:
-Elimina odor e evita proliferação de bactérias.
-
+<div class="category-bar">
+<div class="category active" onclick="filtrarCategoria('todos', this)">Todos (100)</div>
 </div>
+
+<div class="cards-container" id="cardsContainer">
 </div>
 
 </div>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
@@ -191,21 +211,82 @@ Elimina odor e evita proliferação de bactérias.
 function login(){
 const pass = document.getElementById("password").value;
 if(pass === "1011"){
-document.getElementById("login").style.display = "none";
-document.getElementById("app").style.display = "block";
+document.getElementById("login").style.display="none";
+document.getElementById("app").style.display="block";
 }else{
-document.getElementById("error").innerText = "Senha incorreta!";
+document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-function toggleSolution(){
-var sol = document.getElementById("solution1");
-if(sol.style.display === "block"){
-sol.style.display = "none";
-}else{
-sol.style.display = "block";
+const receitas = [
+{
+titulo:"💧 Xixi no colchão (remoção completa de odor)",
+categoria:"todos",
+conteudo:
+"🧂 INGREDIENTES:\n\
+• 200ml de vinagre branco\n\
+• 2 colheres (sopa) de bicarbonato de sódio\n\
+• 1 colher (sopa) de detergente neutro\n\
+• 300ml de água morna\n\n\
+🥣 RECIPIENTE:\n\
+• Borrifador de 500ml\n\
+• Tigela média\n\n\
+⏱ TEMPO DE AÇÃO:\n\
+• 30 a 40 minutos\n\
+• Secagem total: 6 a 12 horas\n\n\
+🧽 PASSO A PASSO:\n\
+1️⃣ Retire o excesso com papel toalha.\n\
+2️⃣ Misture água + vinagre + detergente.\n\
+3️⃣ Coloque no borrifador.\n\
+4️⃣ Borrife na área.\n\
+5️⃣ Polvilhe bicarbonato.\n\
+6️⃣ Aguarde 30–40 minutos.\n\
+7️⃣ Aspire o pó seco.\n\n\
+⚠ OBSERVAÇÕES:\n\
+• Não encharcar.\n\
+• Ventilar bem.\n\
+• Repetir se necessário.\n\n\
+✅ RESULTADO:\n\
+Elimina odor e bactérias."
 }
+];
+
+const container = document.getElementById("cardsContainer");
+
+function renderizar(lista){
+container.innerHTML="";
+lista.forEach((item,index)=>{
+const card = document.createElement("div");
+card.className="card";
+card.innerText=item.titulo;
+card.onclick=()=>abrirModal(item.conteudo);
+container.appendChild(card);
+});
 }
+
+function abrirModal(texto){
+document.getElementById("modalContent").innerText=texto;
+document.getElementById("modal").style.display="flex";
+}
+
+document.getElementById("modal").onclick=function(){
+this.style.display="none";
+}
+
+function buscarReceita(texto){
+const filtrado = receitas.filter(r =>
+r.titulo.toLowerCase().includes(texto.toLowerCase())
+);
+renderizar(filtrado);
+}
+
+function filtrarCategoria(cat, elemento){
+document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
+elemento.classList.add("active");
+renderizar(receitas);
+}
+
+renderizar(receitas);
 
 </script>
 
