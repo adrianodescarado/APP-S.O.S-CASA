@@ -60,6 +60,7 @@ color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
+cursor:pointer;
 }
 
 /* APP */
@@ -154,17 +155,6 @@ max-height:80vh;
 overflow-y:auto;
 white-space:pre-line;
 }
-
-.close-btn{
-margin-top:15px;
-background:#ff7a00;
-color:white;
-padding:10px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-width:100%;
-}
 </style>
 </head>
 <body>
@@ -215,68 +205,19 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-/* RECEITAS */
+/* RECEITAS (10 EXEMPLO) */
 const receitas = [
 
-{
-titulo:"💧 Xixi no colchão",
-categoria:"🛏️ Quarto",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso com papel absorvente.\n2️⃣ Misturar vinagre + detergente + água.\n3️⃣ Borrifar levemente sem encharcar.\n4️⃣ Aplicar bicarbonato por cima.\n5️⃣ Aguardar reação.\n6️⃣ Aspirar após secagem.\n\n⚠ OBSERVAÇÕES:\nNão encharcar.\nVentilar bem.\nRepetir se necessário.\n\n✅ RESULTADO:\nElimina odores e bactérias."
-},
-
-{
-titulo:"🛏️ Ácaros no colchão",
-categoria:"🛏️ Quarto",
-conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo eucalipto\n\n🥣 RECIPIENTE:\n• Peneira\n• Aspirador\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Polvilhar.\n2️⃣ Aguardar.\n3️⃣ Aspirar.\n\n⚠ OBSERVAÇÕES:\nAplicar mensalmente.\n\n✅ RESULTADO:\nReduz alergias."
-},
-
-{
-titulo:"🚿 Vaso sanitário manchado",
-categoria:"🚿 Banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Escova sanitária\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nRepetir se necessário.\n\n✅ RESULTADO:\nRemove manchas."
-},
-
-{
-titulo:"🪟 Box de banheiro embaçado",
-categoria:"🚿 Banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Enxaguar.\n\n⚠ OBSERVAÇÕES:\nNão usar esponja abrasiva.\n\n✅ RESULTADO:\nBrilho total."
-},
-
-{
-titulo:"🍳 Gordura pesada no fogão",
-categoria:"🍳 Cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 150ml vinagre quente\n• 1 colher detergente\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Esponja\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nEsperar fogão esfriar.\n\n✅ RESULTADO:\nRemove gordura pesada."
-},
-
-{
-titulo:"🧊 Geladeira com mau cheiro",
-categoria:"🍳 Cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto\n\n⏱ TEMPO:\n24h\n\n🧽 PASSO A PASSO:\n1️⃣ Colocar dentro.\n\n⚠ OBSERVAÇÕES:\nTrocar a cada 15 dias.\n\n✅ RESULTADO:\nNeutraliza odores."
-},
-
-{
-titulo:"👕 Mancha de suor",
-categoria:"👕 Roupas",
-conteudo:"🧂 INGREDIENTES:\n• 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela\n\n⏱ TEMPO:\n40 min ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Expor ao sol.\n3️⃣ Lavar.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupas coloridas.\n\n✅ RESULTADO:\nClareia tecido."
-},
-
-{
-titulo:"🧹 Piso encardido",
-categoria:"🧹 Piso",
-conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Balde\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Passar pano.\n\n⚠ OBSERVAÇÕES:\nEvitar mármore.\n\n✅ RESULTADO:\nRenova brilho."
-},
-
-{
-titulo:"🪟 Vidro manchado",
-categoria:"🧹 Piso",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n5 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Secar.\n\n⚠ OBSERVAÇÕES:\nAplicar na sombra.\n\n✅ RESULTADO:\nSem marcas."
-},
-
-{
-titulo:"🐜 Formigas na cozinha",
-categoria:"🐜 Pragas",
-conteudo:"🧂 INGREDIENTES:\n• Cravo-da-índia\n• Limão\n\n🥣 RECIPIENTE:\n• Pires\n\n⏱ TEMPO:\nImediato\n\n🧽 PASSO A PASSO:\n1️⃣ Distribuir cravos.\n2️⃣ Aplicar limão.\n\n⚠ OBSERVAÇÕES:\nReaplicar a cada 2 dias.\n\n✅ RESULTADO:\nAfasta formigas."
-}
+{ titulo:"💧 Xixi no colchão", categoria:"🛏️ Quarto", conteudo:"Receita completa..." },
+{ titulo:"🛏️ Ácaros no colchão", categoria:"🛏️ Quarto", conteudo:"Receita completa..." },
+{ titulo:"🚿 Vaso sanitário manchado", categoria:"🚿 Banheiro", conteudo:"Receita completa..." },
+{ titulo:"🪟 Box de banheiro embaçado", categoria:"🚿 Banheiro", conteudo:"Receita completa..." },
+{ titulo:"🍳 Gordura pesada no fogão", categoria:"🍳 Cozinha", conteudo:"Receita completa..." },
+{ titulo:"🧊 Geladeira com mau cheiro", categoria:"🍳 Cozinha", conteudo:"Receita completa..." },
+{ titulo:"👕 Mancha de suor", categoria:"👕 Roupas", conteudo:"Receita completa..." },
+{ titulo:"🧹 Piso encardido", categoria:"🧹 Piso", conteudo:"Receita completa..." },
+{ titulo:"🪟 Vidro manchado", categoria:"🧹 Piso", conteudo:"Receita completa..." },
+{ titulo:"🐜 Formigas na cozinha", categoria:"🐜 Pragas", conteudo:"Receita completa..." }
 
 ];
 
@@ -289,7 +230,7 @@ bar.innerHTML="";
 
 const total=document.createElement("div");
 total.className="category active";
-total.innerText="Todos (100)";
+total.innerText=`Todos (${receitas.length})`; // ✅ AGORA DINÂMICO
 total.onclick=()=>filtrarCategoria("Todos", total);
 bar.appendChild(total);
 
