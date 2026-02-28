@@ -218,37 +218,67 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-const receitas = [
-{
+const receitas = [{
 titulo:"💧 Xixi no colchão (remoção completa de odor)",
-categoria:"todos",
-conteudo:
-"🧂 INGREDIENTES:\n\
-• 200ml de vinagre branco\n\
-• 2 colheres (sopa) de bicarbonato de sódio\n\
-• 1 colher (sopa) de detergente neutro\n\
-• 300ml de água morna\n\n\
-🥣 RECIPIENTE:\n\
-• Borrifador de 500ml\n\
-• Tigela média\n\n\
-⏱ TEMPO DE AÇÃO:\n\
-• 30 a 40 minutos\n\
-• Secagem total: 6 a 12 horas\n\n\
-🧽 PASSO A PASSO:\n\
-1️⃣ Retire o excesso com papel toalha.\n\
-2️⃣ Misture água + vinagre + detergente.\n\
-3️⃣ Coloque no borrifador.\n\
-4️⃣ Borrife na área.\n\
-5️⃣ Polvilhe bicarbonato.\n\
-6️⃣ Aguarde 30–40 minutos.\n\
-7️⃣ Aspire o pó seco.\n\n\
-⚠ OBSERVAÇÕES:\n\
-• Não encharcar.\n\
-• Ventilar bem.\n\
-• Repetir se necessário.\n\n\
-✅ RESULTADO:\n\
-Elimina odor e bactérias."
-}
+categoria:"quarto",
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso.\n2️⃣ Misturar líquidos.\n3️⃣ Borrifar.\n4️⃣ Aplicar bicarbonato.\n5️⃣ Aguardar.\n6️⃣ Aspirar.\n\n⚠ OBSERVAÇÕES:\nNão encharcar.\nVentilar bem.\n\n✅ RESULTADO:\nElimina odores e bactérias."
+},
+
+{
+titulo:"🛏️ Ácaros no colchão",
+categoria:"quarto",
+conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo essencial eucalipto\n\n🥣 RECIPIENTE:\n• Peneira\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Misture ingredientes.\n2️⃣ Polvilhe no colchão.\n3️⃣ Aguarde 2h.\n4️⃣ Aspire.\n\n⚠ OBSERVAÇÕES:\nRepetir 1x por mês.\n\n✅ RESULTADO:\nReduz ácaros e alergias."
+},
+
+{
+titulo:"🛌 Travesseiro amarelado",
+categoria:"quarto",
+conteudo:"🧂 INGREDIENTES:\n• 1 xícara água oxigenada 10v\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n30 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Aplique na mancha.\n3️⃣ Aguarde.\n4️⃣ Lave normalmente.\n\n⚠ OBSERVAÇÕES:\nTestar antes em área pequena.\n\n✅ RESULTADO:\nClareia tecido."
+},
+
+{
+titulo:"👚 Mancha de suor em roupa",
+categoria:"roupas",
+conteudo:"🧂 INGREDIENTES:\n• Suco 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n40 minutos ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Aplique.\n3️⃣ Deixe ao sol.\n4️⃣ Lave.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupa escura.\n\n✅ RESULTADO:\nRemove manchas amareladas."
+},
+
+{
+titulo:"🚿 Vaso sanitário manchado",
+categoria:"banheiro",
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Copo medidor\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Despeje vinagre.\n2️⃣ Adicione bicarbonato.\n3️⃣ Aguarde.\n4️⃣ Esfregue levemente.\n\n⚠ OBSERVAÇÕES:\nNão misturar com água sanitária.\n\n✅ RESULTADO:\nRemove manchas e odores."
+},
+
+{
+titulo:"🍳 Gordura pesada no fogão",
+categoria:"cozinha",
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre quente\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n10 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrife.\n2️⃣ Aguarde.\n3️⃣ Passe pano úmido.\n\n⚠ OBSERVAÇÕES:\nUsar pano macio.\n\n✅ RESULTADO:\nRemove gordura acumulada."
+},
+
+{
+titulo:"🧊 Geladeira com mau cheiro",
+categoria:"cozinha",
+conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto\n\n⏱ TEMPO:\n24h\n\n🧽 PASSO A PASSO:\n1️⃣ Limpe interior.\n2️⃣ Coloque pote aberto.\n\n⚠ OBSERVAÇÕES:\nTrocar a cada 30 dias.\n\n✅ RESULTADO:\nNeutraliza odores."
+},
+
+{
+titulo:"🪟 Vidro manchado",
+categoria:"piso",
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n5 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrife.\n2️⃣ Passe pano seco.\n\n⚠ OBSERVAÇÕES:\nUsar pano microfibra.\n\n✅ RESULTADO:\nVidro brilhante."
+},
+
+{
+titulo:"🚿 Box embaçado",
+categoria:"banheiro",
+conteudo:"🧂 INGREDIENTES:\n• 1 colher detergente\n• 100ml vinagre\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplique.\n2️⃣ Aguarde.\n3️⃣ Enxágue.\n\n⚠ OBSERVAÇÕES:\nEvitar esponja abrasiva.\n\n✅ RESULTADO:\nRemove marcas d'água."
+},
+
+{
+titulo:"🧹 Piso encardido",
+categoria:"piso",
+conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n\n🥣 RECIPIENTE:\n• Balde\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Passe pano.\n\n⚠ OBSERVAÇÕES:\nNão usar em mármore.\n\n✅ RESULTADO:\nRenova o brilho."
+},
+
+
 ];
 
 const container = document.getElementById("cardsContainer");
