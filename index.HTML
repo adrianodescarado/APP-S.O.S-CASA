@@ -73,7 +73,6 @@ font-size:22px;
 font-weight:bold;
 }
 
-/* SEARCH */
 .search-container{
 padding:15px;
 }
@@ -86,7 +85,6 @@ border:1px solid #ccc;
 font-size:16px;
 }
 
-/* CATEGORY BAR */
 .category-bar{
 display:flex;
 gap:10px;
@@ -108,7 +106,6 @@ background:#ff7a00;
 color:white;
 }
 
-/* CARDS */
 .cards-container{
 display:flex;
 flex-wrap:wrap;
@@ -130,7 +127,6 @@ transition:transform 0.3s;
 transform:scale(1.05);
 }
 
-/* MODAL */
 .modal{
 display:none;
 position:fixed;
@@ -165,12 +161,10 @@ border-radius:8px;
 cursor:pointer;
 width:100%;
 }
-
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="login-container" id="login">
 <div class="login-box">
 <h1>🏠</h1>
@@ -181,7 +175,6 @@ width:100%;
 </div>
 </div>
 
-<!-- APP -->
 <div class="app" id="app">
 
 <div class="header">
@@ -192,16 +185,12 @@ width:100%;
 <input type="text" class="search-box" placeholder="🔎 Buscar receita..." onkeyup="buscarReceita(this.value)">
 </div>
 
-<div class="category-bar">
-<div class="category active" onclick="filtrarCategoria('todos', this)">Todos (100)</div>
-</div>
+<div class="category-bar" id="categoryBar"></div>
 
-<div class="cards-container" id="cardsContainer">
-</div>
+<div class="cards-container" id="cardsContainer"></div>
 
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content" id="modalContent"></div>
 </div>
@@ -218,80 +207,124 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-const receitas = [{
-titulo:"💧 Xixi no colchão (remoção completa de odor)",
-categoria:"quarto",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso.\n2️⃣ Misturar líquidos.\n3️⃣ Borrifar.\n4️⃣ Aplicar bicarbonato.\n5️⃣ Aguardar.\n6️⃣ Aspirar.\n\n⚠ OBSERVAÇÕES:\nNão encharcar.\nVentilar bem.\n\n✅ RESULTADO:\nElimina odores e bactérias."
+const receitas = [
+
+{
+titulo:"💧 Xixi no colchão",
+categoria:"🛏️ Quarto",
+conteudo:"INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n• 1 colher detergente\n• 300ml água morna\n\nRECIPIENTE:\n• Borrifador\n\nTEMPO:\n40 minutos\n\nPASSO A PASSO:\n1️⃣ Remover excesso.\n2️⃣ Misturar líquidos.\n3️⃣ Borrifar.\n4️⃣ Aplicar bicarbonato.\n5️⃣ Aguardar.\n6️⃣ Aspirar.\n\nRESULTADO:\nElimina odor e bactérias."
 },
 
 {
-titulo:"🛏️ Ácaros no colchão",
-categoria:"quarto",
-conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo essencial eucalipto\n\n🥣 RECIPIENTE:\n• Peneira\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Misture ingredientes.\n2️⃣ Polvilhe no colchão.\n3️⃣ Aguarde 2h.\n4️⃣ Aspire.\n\n⚠ OBSERVAÇÕES:\nRepetir 1x por mês.\n\n✅ RESULTADO:\nReduz ácaros e alergias."
-},
-
-{
-titulo:"🛌 Travesseiro amarelado",
-categoria:"quarto",
-conteudo:"🧂 INGREDIENTES:\n• 1 xícara água oxigenada 10v\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n30 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Aplique na mancha.\n3️⃣ Aguarde.\n4️⃣ Lave normalmente.\n\n⚠ OBSERVAÇÕES:\nTestar antes em área pequena.\n\n✅ RESULTADO:\nClareia tecido."
-},
-
-{
-titulo:"👚 Mancha de suor em roupa",
-categoria:"roupas",
-conteudo:"🧂 INGREDIENTES:\n• Suco 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n40 minutos ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Aplique.\n3️⃣ Deixe ao sol.\n4️⃣ Lave.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupa escura.\n\n✅ RESULTADO:\nRemove manchas amareladas."
+titulo:"🛌 Ácaros no colchão",
+categoria:"🛏️ Quarto",
+conteudo:"INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo eucalipto\n\nTEMPO:\n2 horas\n\nPASSO A PASSO:\n1️⃣ Polvilhar.\n2️⃣ Aguardar.\n3️⃣ Aspirar.\n\nRESULTADO:\nReduz alergias."
 },
 
 {
 titulo:"🚿 Vaso sanitário manchado",
-categoria:"banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Copo medidor\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Despeje vinagre.\n2️⃣ Adicione bicarbonato.\n3️⃣ Aguarde.\n4️⃣ Esfregue levemente.\n\n⚠ OBSERVAÇÕES:\nNão misturar com água sanitária.\n\n✅ RESULTADO:\nRemove manchas e odores."
+categoria:"🚿 Banheiro",
+conteudo:"INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\nTEMPO:\n1 hora\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Esfregar.\n\nRESULTADO:\nRemove manchas."
+},
+
+{
+titulo:"🪟 Box embaçado",
+categoria:"🚿 Banheiro",
+conteudo:"INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n\nTEMPO:\n20 minutos\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Enxaguar.\n\nRESULTADO:\nRemove marcas."
 },
 
 {
 titulo:"🍳 Gordura pesada no fogão",
-categoria:"cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre quente\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n10 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrife.\n2️⃣ Aguarde.\n3️⃣ Passe pano úmido.\n\n⚠ OBSERVAÇÕES:\nUsar pano macio.\n\n✅ RESULTADO:\nRemove gordura acumulada."
+categoria:"🍳 Cozinha",
+conteudo:"INGREDIENTES:\n• 100ml vinagre quente\n• 1 colher detergente\n\nTEMPO:\n10 minutos\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Limpar.\n\nRESULTADO:\nRemove gordura."
 },
 
 {
 titulo:"🧊 Geladeira com mau cheiro",
-categoria:"cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto\n\n⏱ TEMPO:\n24h\n\n🧽 PASSO A PASSO:\n1️⃣ Limpe interior.\n2️⃣ Coloque pote aberto.\n\n⚠ OBSERVAÇÕES:\nTrocar a cada 30 dias.\n\n✅ RESULTADO:\nNeutraliza odores."
+categoria:"🍳 Cozinha",
+conteudo:"INGREDIENTES:\n• 2 colheres bicarbonato\n\nTEMPO:\n24h\n\nPASSO A PASSO:\n1️⃣ Colocar pote aberto.\n\nRESULTADO:\nNeutraliza odores."
 },
 
 {
-titulo:"🪟 Vidro manchado",
-categoria:"piso",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n5 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrife.\n2️⃣ Passe pano seco.\n\n⚠ OBSERVAÇÕES:\nUsar pano microfibra.\n\n✅ RESULTADO:\nVidro brilhante."
-},
-
-{
-titulo:"🚿 Box embaçado",
-categoria:"banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 1 colher detergente\n• 100ml vinagre\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplique.\n2️⃣ Aguarde.\n3️⃣ Enxágue.\n\n⚠ OBSERVAÇÕES:\nEvitar esponja abrasiva.\n\n✅ RESULTADO:\nRemove marcas d'água."
+titulo:"👕 Mancha de suor",
+categoria:"👕 Roupas",
+conteudo:"INGREDIENTES:\n• 1 limão\n• 1 colher bicarbonato\n\nTEMPO:\n40 min ao sol\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Expor ao sol.\n3️⃣ Lavar.\n\nRESULTADO:\nClareia tecido."
 },
 
 {
 titulo:"🧹 Piso encardido",
-categoria:"piso",
-conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n\n🥣 RECIPIENTE:\n• Balde\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misture.\n2️⃣ Passe pano.\n\n⚠ OBSERVAÇÕES:\nNão usar em mármore.\n\n✅ RESULTADO:\nRenova o brilho."
+categoria:"🧹 Piso",
+conteudo:"INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n\nTEMPO:\n15 minutos\n\nPASSO A PASSO:\n1️⃣ Passar pano.\n\nRESULTADO:\nRenova brilho."
 },
 
+{
+titulo:"🪟 Vidro manchado",
+categoria:"🧹 Piso",
+conteudo:"INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\nTEMPO:\n5 min\n\nPASSO A PASSO:\n1️⃣ Borrifar.\n2️⃣ Secar.\n\nRESULTADO:\nBrilho total."
+},
+
+{
+titulo:"🐜 Formigas na cozinha",
+categoria:"🐜 Pragas",
+conteudo:"INGREDIENTES:\n• 1 colher cravo\n• 1 limão\n\nTEMPO:\nImediato\n\nPASSO A PASSO:\n1️⃣ Colocar cravos.\n2️⃣ Espremer limão nos cantos.\n\nRESULTADO:\nAfasta formigas."
+}
 
 ];
 
-const container = document.getElementById("cardsContainer");
+let categoriaAtiva = "Todos";
+
+function gerarCategorias(){
+const bar = document.getElementById("categoryBar");
+bar.innerHTML="";
+
+const total = document.createElement("div");
+total.className="category active";
+total.innerText="Todos (100)";
+total.onclick=()=>filtrarCategoria("Todos", total);
+bar.appendChild(total);
+
+const categorias = [...new Set(receitas.map(r=>r.categoria))];
+
+categorias.forEach(cat=>{
+const count = receitas.filter(r=>r.categoria===cat).length;
+const el = document.createElement("div");
+el.className="category";
+el.innerText=`${cat} (${count})`;
+el.onclick=()=>filtrarCategoria(cat, el);
+bar.appendChild(el);
+});
+}
 
 function renderizar(lista){
+const container=document.getElementById("cardsContainer");
 container.innerHTML="";
-lista.forEach((item,index)=>{
-const card = document.createElement("div");
+lista.forEach(r=>{
+const card=document.createElement("div");
 card.className="card";
-card.innerText=item.titulo;
-card.onclick=()=>abrirModal(item.conteudo);
+card.innerText=r.titulo;
+card.onclick=()=>abrirModal(r.conteudo);
 container.appendChild(card);
 });
+}
+
+function filtrarCategoria(cat, elemento){
+document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
+elemento.classList.add("active");
+categoriaAtiva=cat;
+if(cat==="Todos"){
+renderizar(receitas);
+}else{
+renderizar(receitas.filter(r=>r.categoria===cat));
+}
+}
+
+function buscarReceita(texto){
+let lista = receitas;
+if(categoriaAtiva!=="Todos"){
+lista = lista.filter(r=>r.categoria===categoriaAtiva);
+}
+lista = lista.filter(r=>r.titulo.toLowerCase().includes(texto.toLowerCase()));
+renderizar(lista);
 }
 
 function abrirModal(texto){
@@ -303,19 +336,7 @@ document.getElementById("modal").onclick=function(){
 this.style.display="none";
 }
 
-function buscarReceita(texto){
-const filtrado = receitas.filter(r =>
-r.titulo.toLowerCase().includes(texto.toLowerCase())
-);
-renderizar(filtrado);
-}
-
-function filtrarCategoria(cat, elemento){
-document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
-elemento.classList.add("active");
-renderizar(receitas);
-}
-
+gerarCategorias();
 renderizar(receitas);
 
 </script>
