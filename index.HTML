@@ -9,93 +9,114 @@
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#f4f6f9;
+background:#111;
+color:white;
 }
 
+/* LOGIN */
 .login-container{
 height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-background:#ffffff;
+background:#111;
 }
 
 .login-box{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+background:#1c1c1c;
+padding:40px;
+border-radius:16px;
 width:90%;
-max-width:350px;
+max-width:400px;
 text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
-.login-box img{
-width:100%;
-border-radius:10px;
+.login-box h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.login-box h2{
 margin-bottom:20px;
+font-weight:normal;
 }
 
 input{
 width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ccc;
+padding:15px;
+border-radius:10px;
+border:none;
+margin-bottom:15px;
 font-size:16px;
 }
 
 button{
 width:100%;
-padding:12px;
-margin-top:15px;
+padding:15px;
+border-radius:10px;
 border:none;
-border-radius:8px;
-background:#2d6cdf;
+background:#ff7a00;
 color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
 }
 
+button:hover{
+opacity:0.9;
+}
+
+/* APP */
 .app{
 display:none;
 padding:20px;
 }
 
 .header{
-background:#2d6cdf;
-color:white;
+background:#ff7a00;
 padding:20px;
 border-radius:12px;
-text-align:center;
-font-size:20px;
+font-size:22px;
 font-weight:bold;
+margin-bottom:25px;
 }
 
-.section{
-margin-top:20px;
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+/* Netflix style */
+.cards-container{
+display:flex;
+gap:20px;
+overflow-x:auto;
 }
 
-.section h2{
-margin-top:0;
+.card{
+min-width:300px;
+background:#1e1e1e;
+padding:20px;
+border-radius:15px;
+cursor:pointer;
+transition:transform 0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card-title{
 font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 .solution{
-padding:8px 0;
-border-bottom:1px solid #eee;
+display:none;
+margin-top:15px;
 font-size:14px;
+line-height:1.6;
+white-space:pre-line;
+color:#ddd;
 }
 
-.solution:last-child{
-border:none;
-}
 </style>
 </head>
 <body>
@@ -103,9 +124,9 @@ border:none;
 <!-- LOGIN -->
 <div class="login-container" id="login">
 <div class="login-box">
-<img src="login.jpg">
-<h2>🔐 Acesso ao S.O.S CASA</h2>
-<input type="password" id="password" placeholder="Digite sua senha">
+<h1>🏠</h1>
+<h2>S.O.S CASA</h2>
+<input type="password" id="password" placeholder="Digite a senha">
 <button onclick="login()">Entrar</button>
 <p id="error" style="color:red;"></p>
 </div>
@@ -115,37 +136,52 @@ border:none;
 <div class="app" id="app">
 
 <div class="header">
-🏠 S.O.S CASA – 100 Soluções Domésticas
+📘 Receitas Domésticas Premium
 </div>
 
-<div class="section">
-<h2>💧 Problemas com Odores</h2>
-<div id="odores"></div>
+<div class="cards-container">
+
+<div class="card" onclick="toggleSolution()">
+<div class="card-title">
+💧 Xixi no colchão (remoção completa de odor)
 </div>
 
-<div class="section">
-<h2>🧼 Manchas Difíceis</h2>
-<div id="manchas"></div>
+<div class="solution" id="solution1">
+
+🧂 INGREDIENTES:
+• 200ml de vinagre branco  
+• 2 colheres (sopa) de bicarbonato de sódio  
+• 1 colher (sopa) de detergente neutro  
+• 300ml de água morna  
+
+🥣 RECIPIENTE:
+• Borrifador de 500ml  
+• Tigela média  
+
+⏱ TEMPO DE AÇÃO:
+• 30 a 40 minutos  
+• Secagem total: 6 a 12 horas  
+
+🧽 PASSO A PASSO:
+1️⃣ Retire o excesso com papel toalha (sem esfregar).  
+2️⃣ Misture na tigela: água morna + vinagre + detergente.  
+3️⃣ Coloque no borrifador.  
+4️⃣ Borrife até umedecer a área afetada.  
+5️⃣ Polvilhe bicarbonato por cima.  
+6️⃣ Aguarde 30–40 minutos.  
+7️⃣ Aspire o pó seco.  
+
+⚠ OBSERVAÇÕES IMPORTANTES:
+• Não encharcar o colchão.  
+• Deixar ventilar bem.  
+• Pode repetir se necessário.  
+
+✅ RESULTADO ESPERADO:
+Elimina odor e evita proliferação de bactérias.
+
+</div>
 </div>
 
-<div class="section">
-<h2>🍳 Cozinha</h2>
-<div id="cozinha"></div>
-</div>
-
-<div class="section">
-<h2>🚿 Banheiro</h2>
-<div id="banheiro"></div>
-</div>
-
-<div class="section">
-<h2>🛏️ Quarto</h2>
-<div id="quarto"></div>
-</div>
-
-<div class="section">
-<h2>✨ Limpeza Rápida</h2>
-<div id="rapida"></div>
 </div>
 
 </div>
@@ -153,135 +189,25 @@ border:none;
 <script>
 
 function login(){
-const pass=document.getElementById("password").value;
-if(pass==="1011"){
-document.getElementById("login").style.display="none";
-document.getElementById("app").style.display="block";
+const pass = document.getElementById("password").value;
+if(pass === "1011"){
+document.getElementById("login").style.display = "none";
+document.getElementById("app").style.display = "block";
 }else{
-document.getElementById("error").innerText="Senha incorreta!";
+document.getElementById("error").innerText = "Senha incorreta!";
 }
 }
 
-const solucoes = [
-"Xixi no colchão resolvido com mistura caseira 💧",
-"Cheiro de mofo eliminado da geladeira 🧊",
-"Ventilador limpo sem desmontar 🌀",
-"Gordura pesada removida da cozinha 🍳",
-"Ralo desentupido sem encanador 🚿",
-"Mancha de café removida ☕",
-"Azulejo encardido clareado 🧽",
-"Panela queimada restaurada 🔥",
-"Cheiro ruim na lixeira eliminado 🗑️",
-"Ferrugem removida naturalmente 🧲",
-"Vidro brilhando sem gordura 🪟",
-"Piso limpo sem esforço 🧹",
-"Roupa amarelada clareada 👕",
-"Cortina sem mofo 🪟",
-"Sofá limpo sem profissional 🛋️",
-"Cheiro de cigarro eliminado 🚭",
-"Geladeira sem mau cheiro ❄️",
-"Rejunte clareado 🧱",
-"Tapete desodorizado 🧼",
-"Ferrugem na roupa removida 👖",
-"Pia de inox brilhando ✨",
-"Parede sem gordura 🧽",
-"Box transparente 🚿",
-"Colchão higienizado 🛏️",
-"Micro-ondas limpo sem esfregar 📦",
-"Vaso sanitário sem manchas 🚽",
-"Guarda-roupa sem mofo 👗",
-"Tênis branco renovado 👟",
-"Lençol restaurado 🛌",
-"Torneira brilhando 💧",
-"Fogão limpo em minutos 🍳",
-"Forno sem crostas 🔥",
-"Filtro de ar limpo 🌬️",
-"Espelho sem manchas 🪞",
-"Chão engordurado resolvido 🧹",
-"Travesseiro higienizado 🛏️",
-"Cortina lavada sem desmontar 🪟",
-"Mesa sem marcas 🍽️",
-"Lixeira sem insetos 🐜",
-"Armário organizado 📦",
-"Geladeira organizada 🧊",
-"Roupas cheirosas 👕",
-"Banheiro sem limo 🚿",
-"Azulejo brilhando 🧽",
-"Chuveiro desentupido 🚿",
-"Panela brilhando ✨",
-"Pia desentupida 💧",
-"Lâmpada limpa 💡",
-"Vidro transparente 🪟",
-"Sofá sem odores 🛋️",
-"Tapete limpo 🧼",
-"Porta sem marcas 🚪",
-"Parede restaurada 🧱",
-"Colchão sem ácaros 🛏️",
-"Armário perfumado 👗",
-"Ralo sem cheiro 🚿",
-"Geladeira higienizada ❄️",
-"Piso brilhando ✨",
-"Cortina perfumada 🪟",
-"Fogão renovado 🍳",
-"Micro-ondas brilhando 📦",
-"Torneira sem ferrugem 💧",
-"Banheiro perfumado 🚿",
-"Cozinha organizada 🍳",
-"Roupa branca renovada 👕",
-"Rejunte claro 🧱",
-"Janela sem poeira 🪟",
-"Ventilador sem pó 🌀",
-"Sofá revitalizado 🛋️",
-"Tapete sem manchas 🧼",
-"Pia brilhando ✨",
-"Vaso sanitário higienizado 🚽",
-"Colchão renovado 🛏️",
-"Lençol cheiroso 🛌",
-"Parede limpa 🧽",
-"Azulejo renovado 🧱",
-"Lixeira higienizada 🗑️",
-"Cozinha perfumada 🍳",
-"Banheiro renovado 🚿",
-"Armário organizado 👗",
-"Guarda-roupa sem cheiro 👚",
-"Espelho brilhante 🪞",
-"Vidro sem marcas 🪟",
-"Piso renovado ✨",
-"Micro-ondas sem gordura 📦",
-"Fogão brilhando 🍳",
-"Panela restaurada 🔥",
-"Geladeira sem manchas ❄️",
-"Ralo funcionando 🚿",
-"Cortina limpa 🪟",
-"Sofá cheiroso 🛋️",
-"Tapete renovado 🧼",
-"Torneira brilhando 💧",
-"Roupa perfumada 👕",
-"Banheiro higienizado 🚿",
-"Cozinha renovada 🍳",
-"Casa organizada 🏠"
-];
-
-function distribuir(){
-const categorias = {
-odores: solucoes.slice(0,15),
-manchas: solucoes.slice(15,30),
-cozinha: solucoes.slice(30,50),
-banheiro: solucoes.slice(50,65),
-quarto: solucoes.slice(65,80),
-rapida: solucoes.slice(80,100)
-};
-
-for(let cat in categorias){
-categorias[cat].forEach(item=>{
-document.getElementById(cat).innerHTML +=
-`<div class="solution">✔ ${item}</div>`;
-});
+function toggleSolution(){
+var sol = document.getElementById("solution1");
+if(sol.style.display === "block"){
+sol.style.display = "none";
+}else{
+sol.style.display = "block";
 }
 }
-
-distribuir();
 
 </script>
+
 </body>
 </html>
