@@ -9,6 +9,7 @@
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
+background:white;
 }
 
 /* LOGIN */
@@ -36,6 +37,10 @@ font-size:50px;
 margin-bottom:10px;
 }
 
+.login-box h2{
+margin-bottom:20px;
+}
+
 input{
 width:100%;
 padding:15px;
@@ -60,7 +65,6 @@ cursor:pointer;
 /* APP */
 .app{
 display:none;
-background:white;
 min-height:100vh;
 padding-bottom:40px;
 }
@@ -165,6 +169,7 @@ width:100%;
 </head>
 <body>
 
+<!-- LOGIN -->
 <div class="login-container" id="login">
 <div class="login-box">
 <h1>🏠</h1>
@@ -175,6 +180,7 @@ width:100%;
 </div>
 </div>
 
+<!-- APP -->
 <div class="app" id="app">
 
 <div class="header">
@@ -191,12 +197,14 @@ width:100%;
 
 </div>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
 
+/* LOGIN */
 function login(){
 const pass = document.getElementById("password").value;
 if(pass === "1011"){
@@ -207,89 +215,89 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-const receitas = [const receitas = [
+/* RECEITAS */
+const receitas = [
 
 {
 titulo:"💧 Xixi no colchão",
 categoria:"🛏️ Quarto",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso com papel absorvente.\n2️⃣ Misturar vinagre + detergente + água.\n3️⃣ Borrifar levemente sem encharcar.\n4️⃣ Aplicar bicarbonato por cima.\n5️⃣ Aguardar reação efervescente.\n6️⃣ Aspirar após secagem.\n\n⚠ OBSERVAÇÕES:\nNão encharcar o colchão.\nVentilar bem o ambiente.\nPode repetir se necessário.\n\n✅ RESULTADO:\nElimina odores, bactérias e manchas amareladas."
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso com papel absorvente.\n2️⃣ Misturar vinagre + detergente + água.\n3️⃣ Borrifar levemente sem encharcar.\n4️⃣ Aplicar bicarbonato por cima.\n5️⃣ Aguardar reação.\n6️⃣ Aspirar após secagem.\n\n⚠ OBSERVAÇÕES:\nNão encharcar.\nVentilar bem.\nRepetir se necessário.\n\n✅ RESULTADO:\nElimina odores e bactérias."
 },
 
 {
 titulo:"🛏️ Ácaros no colchão",
 categoria:"🛏️ Quarto",
-conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo essencial de eucalipto\n\n🥣 RECIPIENTE:\n• Peneira fina\n• Aspirador\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar bicarbonato + óleo.\n2️⃣ Polvilhar sobre o colchão.\n3️⃣ Aguardar 2h.\n4️⃣ Aspirar completamente.\n\n⚠ OBSERVAÇÕES:\nIdeal fazer a cada 30 dias.\nManter colchão ao sol quando possível.\n\n✅ RESULTADO:\nReduz ácaros, odores e crises alérgicas."
+conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo eucalipto\n\n🥣 RECIPIENTE:\n• Peneira\n• Aspirador\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Polvilhar.\n2️⃣ Aguardar.\n3️⃣ Aspirar.\n\n⚠ OBSERVAÇÕES:\nAplicar mensalmente.\n\n✅ RESULTADO:\nReduz alergias."
 },
 
 {
 titulo:"🚿 Vaso sanitário manchado",
 categoria:"🚿 Banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Escova sanitária\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Despejar vinagre.\n2️⃣ Adicionar bicarbonato.\n3️⃣ Aguardar 1h.\n4️⃣ Esfregar e dar descarga.\n\n⚠ OBSERVAÇÕES:\nPara manchas antigas repetir 2x.\n\n✅ RESULTADO:\nRemove manchas e elimina odores fortes."
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Escova sanitária\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nRepetir se necessário.\n\n✅ RESULTADO:\nRemove manchas."
 },
 
 {
 titulo:"🪟 Box de banheiro embaçado",
 categoria:"🚿 Banheiro",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n• Esponja macia\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar tudo.\n2️⃣ Aplicar no vidro.\n3️⃣ Aguardar 15min.\n4️⃣ Esfregar e enxaguar.\n\n⚠ OBSERVAÇÕES:\nNão usar esponja abrasiva.\n\n✅ RESULTADO:\nRemove marcas de sabão e deixa brilho."
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Enxaguar.\n\n⚠ OBSERVAÇÕES:\nNão usar esponja abrasiva.\n\n✅ RESULTADO:\nBrilho total."
 },
 
 {
 titulo:"🍳 Gordura pesada no fogão",
 categoria:"🍳 Cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 150ml vinagre quente\n• 1 colher detergente\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Esponja\n\n⏱ TEMPO:\n10–15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar vinagre quente.\n2️⃣ Adicionar detergente.\n3️⃣ Polvilhar bicarbonato.\n4️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nDesligar e esperar fogão esfriar.\n\n✅ RESULTADO:\nDissolve gordura pesada rapidamente."
+conteudo:"🧂 INGREDIENTES:\n• 150ml vinagre quente\n• 1 colher detergente\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Esponja\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nEsperar fogão esfriar.\n\n✅ RESULTADO:\nRemove gordura pesada."
 },
 
 {
 titulo:"🧊 Geladeira com mau cheiro",
 categoria:"🍳 Cozinha",
-conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto pequeno\n\n⏱ TEMPO:\n24h contínuo\n\n🧽 PASSO A PASSO:\n1️⃣ Colocar pote aberto dentro.\n2️⃣ Trocar a cada 15 dias.\n\n⚠ OBSERVAÇÕES:\nLimpar interior antes de aplicar.\n\n✅ RESULTADO:\nNeutraliza odores internos."
+conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto\n\n⏱ TEMPO:\n24h\n\n🧽 PASSO A PASSO:\n1️⃣ Colocar dentro.\n\n⚠ OBSERVAÇÕES:\nTrocar a cada 15 dias.\n\n✅ RESULTADO:\nNeutraliza odores."
 },
 
 {
-titulo:"👕 Mancha de suor em roupa branca",
+titulo:"👕 Mancha de suor",
 categoria:"👕 Roupas",
-conteudo:"🧂 INGREDIENTES:\n• Suco de 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n40 minutos ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar mistura na mancha.\n2️⃣ Deixar ao sol.\n3️⃣ Lavar normalmente.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupas coloridas.\n\n✅ RESULTADO:\nClareia e remove manchas amareladas."
+conteudo:"🧂 INGREDIENTES:\n• 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela\n\n⏱ TEMPO:\n40 min ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Expor ao sol.\n3️⃣ Lavar.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupas coloridas.\n\n✅ RESULTADO:\nClareia tecido."
 },
 
 {
 titulo:"🧹 Piso encardido",
 categoria:"🧹 Piso",
-conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Balde\n• Pano de chão\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar tudo.\n2️⃣ Passar pano úmido.\n3️⃣ Secar naturalmente.\n\n⚠ OBSERVAÇÕES:\nNão usar em mármore natural.\n\n✅ RESULTADO:\nRemove encardido e devolve brilho."
+conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Balde\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Passar pano.\n\n⚠ OBSERVAÇÕES:\nEvitar mármore.\n\n✅ RESULTADO:\nRenova brilho."
 },
 
 {
 titulo:"🪟 Vidro manchado",
 categoria:"🧹 Piso",
-conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n• Pano microfibra\n\n⏱ TEMPO:\n5–10 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrifar.\n2️⃣ Passar pano seco.\n\n⚠ OBSERVAÇÕES:\nAplicar na sombra.\n\n✅ RESULTADO:\nVidro transparente sem marcas."
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n\n⏱ TEMPO:\n5 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Secar.\n\n⚠ OBSERVAÇÕES:\nAplicar na sombra.\n\n✅ RESULTADO:\nSem marcas."
 },
 
 {
 titulo:"🐜 Formigas na cozinha",
 categoria:"🐜 Pragas",
-conteudo:"🧂 INGREDIENTES:\n• 1 colher cravo-da-índia\n• Suco de 1 limão\n\n🥣 RECIPIENTE:\n• Pires pequenos\n\n⏱ TEMPO:\nAção imediata\n\n🧽 PASSO A PASSO:\n1️⃣ Distribuir cravos nos cantos.\n2️⃣ Aplicar limão nas trilhas.\n\n⚠ OBSERVAÇÕES:\nReaplicar a cada 2 dias.\n\n✅ RESULTADO:\nAfasta formigas naturalmente."
+conteudo:"🧂 INGREDIENTES:\n• Cravo-da-índia\n• Limão\n\n🥣 RECIPIENTE:\n• Pires\n\n⏱ TEMPO:\nImediato\n\n🧽 PASSO A PASSO:\n1️⃣ Distribuir cravos.\n2️⃣ Aplicar limão.\n\n⚠ OBSERVAÇÕES:\nReaplicar a cada 2 dias.\n\n✅ RESULTADO:\nAfasta formigas."
 }
 
 ];
 
-];
-
-let categoriaAtiva = "Todos";
+/* SISTEMA */
+let categoriaAtiva="Todos";
 
 function gerarCategorias(){
-const bar = document.getElementById("categoryBar");
+const bar=document.getElementById("categoryBar");
 bar.innerHTML="";
 
-const total = document.createElement("div");
+const total=document.createElement("div");
 total.className="category active";
 total.innerText="Todos (100)";
 total.onclick=()=>filtrarCategoria("Todos", total);
 bar.appendChild(total);
 
-const categorias = [...new Set(receitas.map(r=>r.categoria))];
+const categorias=[...new Set(receitas.map(r=>r.categoria))];
 
 categorias.forEach(cat=>{
-const count = receitas.filter(r=>r.categoria===cat).length;
-const el = document.createElement("div");
+const count=receitas.filter(r=>r.categoria===cat).length;
+const el=document.createElement("div");
 el.className="category";
 el.innerText=`${cat} (${count})`;
 el.onclick=()=>filtrarCategoria(cat, el);
@@ -321,11 +329,11 @@ renderizar(receitas.filter(r=>r.categoria===cat));
 }
 
 function buscarReceita(texto){
-let lista = receitas;
+let lista=receitas;
 if(categoriaAtiva!=="Todos"){
-lista = lista.filter(r=>r.categoria===categoriaAtiva);
+lista=lista.filter(r=>r.categoria===categoriaAtiva);
 }
-lista = lista.filter(r=>r.titulo.toLowerCase().includes(texto.toLowerCase()));
+lista=lista.filter(r=>r.titulo.toLowerCase().includes(texto.toLowerCase()));
 renderizar(lista);
 }
 
