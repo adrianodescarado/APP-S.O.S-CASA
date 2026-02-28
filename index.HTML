@@ -207,67 +207,69 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-const receitas = [
+const receitas = [const receitas = [
 
 {
 titulo:"💧 Xixi no colchão",
 categoria:"🛏️ Quarto",
-conteudo:"INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n• 1 colher detergente\n• 300ml água morna\n\nRECIPIENTE:\n• Borrifador\n\nTEMPO:\n40 minutos\n\nPASSO A PASSO:\n1️⃣ Remover excesso.\n2️⃣ Misturar líquidos.\n3️⃣ Borrifar.\n4️⃣ Aplicar bicarbonato.\n5️⃣ Aguardar.\n6️⃣ Aspirar.\n\nRESULTADO:\nElimina odor e bactérias."
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres (sopa) bicarbonato\n• 1 colher detergente neutro\n• 300ml água morna\n\n🥣 RECIPIENTE:\n• Borrifador 500ml\n• Tigela média\n\n⏱ TEMPO:\n30–40 minutos\nSecagem 6–12h\n\n🧽 PASSO A PASSO:\n1️⃣ Remover excesso com papel absorvente.\n2️⃣ Misturar vinagre + detergente + água.\n3️⃣ Borrifar levemente sem encharcar.\n4️⃣ Aplicar bicarbonato por cima.\n5️⃣ Aguardar reação efervescente.\n6️⃣ Aspirar após secagem.\n\n⚠ OBSERVAÇÕES:\nNão encharcar o colchão.\nVentilar bem o ambiente.\nPode repetir se necessário.\n\n✅ RESULTADO:\nElimina odores, bactérias e manchas amareladas."
 },
 
 {
-titulo:"🛌 Ácaros no colchão",
+titulo:"🛏️ Ácaros no colchão",
 categoria:"🛏️ Quarto",
-conteudo:"INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo eucalipto\n\nTEMPO:\n2 horas\n\nPASSO A PASSO:\n1️⃣ Polvilhar.\n2️⃣ Aguardar.\n3️⃣ Aspirar.\n\nRESULTADO:\nReduz alergias."
+conteudo:"🧂 INGREDIENTES:\n• 100g bicarbonato\n• 10 gotas óleo essencial de eucalipto\n\n🥣 RECIPIENTE:\n• Peneira fina\n• Aspirador\n\n⏱ TEMPO:\n2 horas\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar bicarbonato + óleo.\n2️⃣ Polvilhar sobre o colchão.\n3️⃣ Aguardar 2h.\n4️⃣ Aspirar completamente.\n\n⚠ OBSERVAÇÕES:\nIdeal fazer a cada 30 dias.\nManter colchão ao sol quando possível.\n\n✅ RESULTADO:\nReduz ácaros, odores e crises alérgicas."
 },
 
 {
 titulo:"🚿 Vaso sanitário manchado",
 categoria:"🚿 Banheiro",
-conteudo:"INGREDIENTES:\n• 200ml vinagre\n• 2 colheres bicarbonato\n\nTEMPO:\n1 hora\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Esfregar.\n\nRESULTADO:\nRemove manchas."
+conteudo:"🧂 INGREDIENTES:\n• 200ml vinagre branco\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Escova sanitária\n\n⏱ TEMPO:\n1 hora\n\n🧽 PASSO A PASSO:\n1️⃣ Despejar vinagre.\n2️⃣ Adicionar bicarbonato.\n3️⃣ Aguardar 1h.\n4️⃣ Esfregar e dar descarga.\n\n⚠ OBSERVAÇÕES:\nPara manchas antigas repetir 2x.\n\n✅ RESULTADO:\nRemove manchas e elimina odores fortes."
 },
 
 {
-titulo:"🪟 Box embaçado",
+titulo:"🪟 Box de banheiro embaçado",
 categoria:"🚿 Banheiro",
-conteudo:"INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n\nTEMPO:\n20 minutos\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Enxaguar.\n\nRESULTADO:\nRemove marcas."
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 1 colher detergente\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n• Esponja macia\n\n⏱ TEMPO:\n20 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar tudo.\n2️⃣ Aplicar no vidro.\n3️⃣ Aguardar 15min.\n4️⃣ Esfregar e enxaguar.\n\n⚠ OBSERVAÇÕES:\nNão usar esponja abrasiva.\n\n✅ RESULTADO:\nRemove marcas de sabão e deixa brilho."
 },
 
 {
 titulo:"🍳 Gordura pesada no fogão",
 categoria:"🍳 Cozinha",
-conteudo:"INGREDIENTES:\n• 100ml vinagre quente\n• 1 colher detergente\n\nTEMPO:\n10 minutos\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Aguardar.\n3️⃣ Limpar.\n\nRESULTADO:\nRemove gordura."
+conteudo:"🧂 INGREDIENTES:\n• 150ml vinagre quente\n• 1 colher detergente\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Esponja\n\n⏱ TEMPO:\n10–15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar vinagre quente.\n2️⃣ Adicionar detergente.\n3️⃣ Polvilhar bicarbonato.\n4️⃣ Esfregar.\n\n⚠ OBSERVAÇÕES:\nDesligar e esperar fogão esfriar.\n\n✅ RESULTADO:\nDissolve gordura pesada rapidamente."
 },
 
 {
 titulo:"🧊 Geladeira com mau cheiro",
 categoria:"🍳 Cozinha",
-conteudo:"INGREDIENTES:\n• 2 colheres bicarbonato\n\nTEMPO:\n24h\n\nPASSO A PASSO:\n1️⃣ Colocar pote aberto.\n\nRESULTADO:\nNeutraliza odores."
+conteudo:"🧂 INGREDIENTES:\n• 2 colheres bicarbonato\n\n🥣 RECIPIENTE:\n• Pote aberto pequeno\n\n⏱ TEMPO:\n24h contínuo\n\n🧽 PASSO A PASSO:\n1️⃣ Colocar pote aberto dentro.\n2️⃣ Trocar a cada 15 dias.\n\n⚠ OBSERVAÇÕES:\nLimpar interior antes de aplicar.\n\n✅ RESULTADO:\nNeutraliza odores internos."
 },
 
 {
-titulo:"👕 Mancha de suor",
+titulo:"👕 Mancha de suor em roupa branca",
 categoria:"👕 Roupas",
-conteudo:"INGREDIENTES:\n• 1 limão\n• 1 colher bicarbonato\n\nTEMPO:\n40 min ao sol\n\nPASSO A PASSO:\n1️⃣ Aplicar.\n2️⃣ Expor ao sol.\n3️⃣ Lavar.\n\nRESULTADO:\nClareia tecido."
+conteudo:"🧂 INGREDIENTES:\n• Suco de 1 limão\n• 1 colher bicarbonato\n\n🥣 RECIPIENTE:\n• Tigela pequena\n\n⏱ TEMPO:\n40 minutos ao sol\n\n🧽 PASSO A PASSO:\n1️⃣ Aplicar mistura na mancha.\n2️⃣ Deixar ao sol.\n3️⃣ Lavar normalmente.\n\n⚠ OBSERVAÇÕES:\nNão usar em roupas coloridas.\n\n✅ RESULTADO:\nClareia e remove manchas amareladas."
 },
 
 {
 titulo:"🧹 Piso encardido",
 categoria:"🧹 Piso",
-conteudo:"INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n\nTEMPO:\n15 minutos\n\nPASSO A PASSO:\n1️⃣ Passar pano.\n\nRESULTADO:\nRenova brilho."
+conteudo:"🧂 INGREDIENTES:\n• 1 litro água morna\n• 3 colheres vinagre\n• 1 colher detergente\n\n🥣 RECIPIENTE:\n• Balde\n• Pano de chão\n\n⏱ TEMPO:\n15 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Misturar tudo.\n2️⃣ Passar pano úmido.\n3️⃣ Secar naturalmente.\n\n⚠ OBSERVAÇÕES:\nNão usar em mármore natural.\n\n✅ RESULTADO:\nRemove encardido e devolve brilho."
 },
 
 {
 titulo:"🪟 Vidro manchado",
 categoria:"🧹 Piso",
-conteudo:"INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\nTEMPO:\n5 min\n\nPASSO A PASSO:\n1️⃣ Borrifar.\n2️⃣ Secar.\n\nRESULTADO:\nBrilho total."
+conteudo:"🧂 INGREDIENTES:\n• 100ml vinagre\n• 100ml água\n\n🥣 RECIPIENTE:\n• Borrifador\n• Pano microfibra\n\n⏱ TEMPO:\n5–10 minutos\n\n🧽 PASSO A PASSO:\n1️⃣ Borrifar.\n2️⃣ Passar pano seco.\n\n⚠ OBSERVAÇÕES:\nAplicar na sombra.\n\n✅ RESULTADO:\nVidro transparente sem marcas."
 },
 
 {
 titulo:"🐜 Formigas na cozinha",
 categoria:"🐜 Pragas",
-conteudo:"INGREDIENTES:\n• 1 colher cravo\n• 1 limão\n\nTEMPO:\nImediato\n\nPASSO A PASSO:\n1️⃣ Colocar cravos.\n2️⃣ Espremer limão nos cantos.\n\nRESULTADO:\nAfasta formigas."
+conteudo:"🧂 INGREDIENTES:\n• 1 colher cravo-da-índia\n• Suco de 1 limão\n\n🥣 RECIPIENTE:\n• Pires pequenos\n\n⏱ TEMPO:\nAção imediata\n\n🧽 PASSO A PASSO:\n1️⃣ Distribuir cravos nos cantos.\n2️⃣ Aplicar limão nas trilhas.\n\n⚠ OBSERVAÇÕES:\nReaplicar a cada 2 dias.\n\n✅ RESULTADO:\nAfasta formigas naturalmente."
 }
+
+];
 
 ];
 
