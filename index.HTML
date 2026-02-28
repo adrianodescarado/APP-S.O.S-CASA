@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.O.S CASA</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f6f9;
+}
+
+.login-container{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#ffffff;
+}
+
+.login-box{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+width:90%;
+max-width:350px;
+text-align:center;
+}
+
+.login-box img{
+width:100%;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:8px;
+background:#2d6cdf;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.app{
+display:none;
+padding:20px;
+}
+
+.header{
+background:#2d6cdf;
+color:white;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-size:20px;
+font-weight:bold;
+}
+
+.section{
+margin-top:20px;
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.section h2{
+margin-top:0;
+font-size:18px;
+}
+
+.solution{
+padding:8px 0;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+.solution:last-child{
+border:none;
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-container" id="login">
+<div class="login-box">
+<img src="login.jpg">
+<h2>🔐 Acesso ao S.O.S CASA</h2>
+<input type="password" id="password" placeholder="Digite sua senha">
+<button onclick="login()">Entrar</button>
+<p id="error" style="color:red;"></p>
+</div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+
+<div class="header">
+🏠 S.O.S CASA – 100 Soluções Domésticas
+</div>
+
+<div class="section">
+<h2>💧 Problemas com Odores</h2>
+<div id="odores"></div>
+</div>
+
+<div class="section">
+<h2>🧼 Manchas Difíceis</h2>
+<div id="manchas"></div>
+</div>
+
+<div class="section">
+<h2>🍳 Cozinha</h2>
+<div id="cozinha"></div>
+</div>
+
+<div class="section">
+<h2>🚿 Banheiro</h2>
+<div id="banheiro"></div>
+</div>
+
+<div class="section">
+<h2>🛏️ Quarto</h2>
+<div id="quarto"></div>
+</div>
+
+<div class="section">
+<h2>✨ Limpeza Rápida</h2>
+<div id="rapida"></div>
+</div>
+
+</div>
+
+<script>
+
+function login(){
+const pass=document.getElementById("password").value;
+if(pass==="1011"){
+document.getElementById("login").style.display="none";
+document.getElementById("app").style.display="block";
+}else{
+document.getElementById("error").innerText="Senha incorreta!";
+}
+}
+
+const solucoes = [
+"Xixi no colchão resolvido com mistura caseira 💧",
+"Cheiro de mofo eliminado da geladeira 🧊",
+"Ventilador limpo sem desmontar 🌀",
+"Gordura pesada removida da cozinha 🍳",
+"Ralo desentupido sem encanador 🚿",
+"Mancha de café removida ☕",
+"Azulejo encardido clareado 🧽",
+"Panela queimada restaurada 🔥",
+"Cheiro ruim na lixeira eliminado 🗑️",
+"Ferrugem removida naturalmente 🧲",
+"Vidro brilhando sem gordura 🪟",
+"Piso limpo sem esforço 🧹",
+"Roupa amarelada clareada 👕",
+"Cortina sem mofo 🪟",
+"Sofá limpo sem profissional 🛋️",
+"Cheiro de cigarro eliminado 🚭",
+"Geladeira sem mau cheiro ❄️",
+"Rejunte clareado 🧱",
+"Tapete desodorizado 🧼",
+"Ferrugem na roupa removida 👖",
+"Pia de inox brilhando ✨",
+"Parede sem gordura 🧽",
+"Box transparente 🚿",
+"Colchão higienizado 🛏️",
+"Micro-ondas limpo sem esfregar 📦",
+"Vaso sanitário sem manchas 🚽",
+"Guarda-roupa sem mofo 👗",
+"Tênis branco renovado 👟",
+"Lençol restaurado 🛌",
+"Torneira brilhando 💧",
+"Fogão limpo em minutos 🍳",
+"Forno sem crostas 🔥",
+"Filtro de ar limpo 🌬️",
+"Espelho sem manchas 🪞",
+"Chão engordurado resolvido 🧹",
+"Travesseiro higienizado 🛏️",
+"Cortina lavada sem desmontar 🪟",
+"Mesa sem marcas 🍽️",
+"Lixeira sem insetos 🐜",
+"Armário organizado 📦",
+"Geladeira organizada 🧊",
+"Roupas cheirosas 👕",
+"Banheiro sem limo 🚿",
+"Azulejo brilhando 🧽",
+"Chuveiro desentupido 🚿",
+"Panela brilhando ✨",
+"Pia desentupida 💧",
+"Lâmpada limpa 💡",
+"Vidro transparente 🪟",
+"Sofá sem odores 🛋️",
+"Tapete limpo 🧼",
+"Porta sem marcas 🚪",
+"Parede restaurada 🧱",
+"Colchão sem ácaros 🛏️",
+"Armário perfumado 👗",
+"Ralo sem cheiro 🚿",
+"Geladeira higienizada ❄️",
+"Piso brilhando ✨",
+"Cortina perfumada 🪟",
+"Fogão renovado 🍳",
+"Micro-ondas brilhando 📦",
+"Torneira sem ferrugem 💧",
+"Banheiro perfumado 🚿",
+"Cozinha organizada 🍳",
+"Roupa branca renovada 👕",
+"Rejunte claro 🧱",
+"Janela sem poeira 🪟",
+"Ventilador sem pó 🌀",
+"Sofá revitalizado 🛋️",
+"Tapete sem manchas 🧼",
+"Pia brilhando ✨",
+"Vaso sanitário higienizado 🚽",
+"Colchão renovado 🛏️",
+"Lençol cheiroso 🛌",
+"Parede limpa 🧽",
+"Azulejo renovado 🧱",
+"Lixeira higienizada 🗑️",
+"Cozinha perfumada 🍳",
+"Banheiro renovado 🚿",
+"Armário organizado 👗",
+"Guarda-roupa sem cheiro 👚",
+"Espelho brilhante 🪞",
+"Vidro sem marcas 🪟",
+"Piso renovado ✨",
+"Micro-ondas sem gordura 📦",
+"Fogão brilhando 🍳",
+"Panela restaurada 🔥",
+"Geladeira sem manchas ❄️",
+"Ralo funcionando 🚿",
+"Cortina limpa 🪟",
+"Sofá cheiroso 🛋️",
+"Tapete renovado 🧼",
+"Torneira brilhando 💧",
+"Roupa perfumada 👕",
+"Banheiro higienizado 🚿",
+"Cozinha renovada 🍳",
+"Casa organizada 🏠"
+];
+
+function distribuir(){
+const categorias = {
+odores: solucoes.slice(0,15),
+manchas: solucoes.slice(15,30),
+cozinha: solucoes.slice(30,50),
+banheiro: solucoes.slice(50,65),
+quarto: solucoes.slice(65,80),
+rapida: solucoes.slice(80,100)
+};
+
+for(let cat in categorias){
+categorias[cat].forEach(item=>{
+document.getElementById(cat).innerHTML +=
+`<div class="solution">✔ ${item}</div>`;
+});
+}
+}
+
+distribuir();
+
+</script>
+</body>
+</html>
