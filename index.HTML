@@ -12,7 +12,6 @@ font-family:Arial, Helvetica, sans-serif;
 background:white;
 }
 
-/* LOGIN */
 .login-container{
 height:100vh;
 display:flex;
@@ -32,14 +31,8 @@ text-align:center;
 box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
-.login-box h1{
-font-size:50px;
-margin-bottom:10px;
-}
-
-.login-box h2{
-margin-bottom:20px;
-}
+.login-box h1{font-size:50px;margin-bottom:10px;}
+.login-box h2{margin-bottom:20px;}
 
 input{
 width:100%;
@@ -60,15 +53,9 @@ color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
-cursor:pointer;
 }
 
-/* APP */
-.app{
-display:none;
-min-height:100vh;
-padding-bottom:40px;
-}
+.app{display:none;min-height:100vh;padding-bottom:40px;}
 
 .header{
 background:#ff7a00;
@@ -78,9 +65,7 @@ font-size:22px;
 font-weight:bold;
 }
 
-.search-container{
-padding:15px;
-}
+.search-container{padding:15px;}
 
 .search-box{
 width:100%;
@@ -128,9 +113,7 @@ cursor:pointer;
 transition:transform 0.3s;
 }
 
-.card:hover{
-transform:scale(1.05);
-}
+.card:hover{transform:scale(1.05);}
 
 .modal{
 display:none;
@@ -159,7 +142,6 @@ white-space:pre-line;
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="login-container" id="login">
 <div class="login-box">
 <h1>🏠</h1>
@@ -170,7 +152,6 @@ white-space:pre-line;
 </div>
 </div>
 
-<!-- APP -->
 <div class="app" id="app">
 
 <div class="header">
@@ -182,19 +163,16 @@ white-space:pre-line;
 </div>
 
 <div class="category-bar" id="categoryBar"></div>
-
 <div class="cards-container" id="cardsContainer"></div>
 
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
 
-/* LOGIN */
 function login(){
 const pass = document.getElementById("password").value;
 if(pass === "1011"){
@@ -205,23 +183,62 @@ document.getElementById("error").innerText="Senha incorreta!";
 }
 }
 
-/* RECEITAS (10 EXEMPLO) */
 const receitas = [
 
-{ titulo:"💧 Xixi no colchão", categoria:"🛏️ Quarto", conteudo:"Receita completa..." },
-{ titulo:"🛏️ Ácaros no colchão", categoria:"🛏️ Quarto", conteudo:"Receita completa..." },
-{ titulo:"🚿 Vaso sanitário manchado", categoria:"🚿 Banheiro", conteudo:"Receita completa..." },
-{ titulo:"🪟 Box de banheiro embaçado", categoria:"🚿 Banheiro", conteudo:"Receita completa..." },
-{ titulo:"🍳 Gordura pesada no fogão", categoria:"🍳 Cozinha", conteudo:"Receita completa..." },
-{ titulo:"🧊 Geladeira com mau cheiro", categoria:"🍳 Cozinha", conteudo:"Receita completa..." },
-{ titulo:"👕 Mancha de suor", categoria:"👕 Roupas", conteudo:"Receita completa..." },
-{ titulo:"🧹 Piso encardido", categoria:"🧹 Piso", conteudo:"Receita completa..." },
-{ titulo:"🪟 Vidro manchado", categoria:"🧹 Piso", conteudo:"Receita completa..." },
-{ titulo:"🐜 Formigas na cozinha", categoria:"🐜 Pragas", conteudo:"Receita completa..." }
+{
+titulo:"💧 Xixi no colchão",
+categoria:"🛏️ Quarto",
+conteudo:`🧂 INGREDIENTES:
+• 200ml vinagre branco
+• 2 colheres (sopa) bicarbonato
+• 1 colher detergente neutro
+• 300ml água morna
+
+🥣 RECIPIENTE:
+• Borrifador 500ml
+• Tigela média
+
+⏱ TEMPO:
+30–40 minutos
+Secagem 6–12h
+
+🧽 PASSO A PASSO:
+1️⃣ Remover excesso com papel.
+2️⃣ Misturar líquidos.
+3️⃣ Borrifar sem encharcar.
+4️⃣ Aplicar bicarbonato.
+5️⃣ Aguardar reação.
+6️⃣ Aspirar após secagem.
+
+⚠ OBSERVAÇÕES:
+Não encharcar.
+Ventilar bem.
+
+✅ RESULTADO:
+Elimina odores e bactérias.`
+},
+
+{
+titulo:"🚿 Vaso sanitário manchado",
+categoria:"🚿 Banheiro",
+conteudo:`🧂 INGREDIENTES:
+• 200ml vinagre
+• 2 colheres bicarbonato
+
+⏱ TEMPO:
+1 hora
+
+🧽 PASSO A PASSO:
+1️⃣ Aplicar.
+2️⃣ Aguardar.
+3️⃣ Esfregar.
+
+✅ RESULTADO:
+Remove manchas.`
+}
 
 ];
 
-/* SISTEMA */
 let categoriaAtiva="Todos";
 
 function gerarCategorias(){
@@ -230,7 +247,7 @@ bar.innerHTML="";
 
 const total=document.createElement("div");
 total.className="category active";
-total.innerText=`Todos (${receitas.length})`; // ✅ AGORA DINÂMICO
+total.innerText=`Todos (${receitas.length})`;
 total.onclick=()=>filtrarCategoria("Todos", total);
 bar.appendChild(total);
 
@@ -262,11 +279,8 @@ function filtrarCategoria(cat, elemento){
 document.querySelectorAll(".category").forEach(c=>c.classList.remove("active"));
 elemento.classList.add("active");
 categoriaAtiva=cat;
-if(cat==="Todos"){
-renderizar(receitas);
-}else{
-renderizar(receitas.filter(r=>r.categoria===cat));
-}
+if(cat==="Todos"){renderizar(receitas);}
+else{renderizar(receitas.filter(r=>r.categoria===cat));}
 }
 
 function buscarReceita(texto){
